@@ -1,0 +1,50 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TestResult {
+  result: String!
+}
+
+type Document {
+  id: ID!
+  title: String!
+  description: String!
+  fileUrl: String!
+  userId: String!
+}
+
+type User {
+  id: ID!
+  email: String!
+  role: String!
+}
+
+type Query {
+  test: TestResult!
+  getDocumentsByUser(userId: String!): [Document!]!
+  getDocumentById(id: String!): Document!
+  me: User!
+  findAll: [User!]!
+  getUser: User!
+}
+
+type Mutation {
+  createDocument(input: CreateDocumentInput!): Document!
+  deleteDocument(id: String!): Boolean!
+  login(email: String!, password: String!): String!
+  createUser(input: CreateUserInput!): User!
+}
+
+input CreateDocumentInput {
+  title: String!
+  description: String!
+  fileUrl: String!
+  userId: String!
+}
+
+input CreateUserInput {
+  email: String!
+  password: String!
+  role: String
+}
